@@ -1,4 +1,6 @@
 import os
 
 class Config(object):
-    SECRET_KY = os.environ.get("SECRET_KY") or "vidhwanjav@123!"
+    SECRET_KEY = os.environ.get("SECRET_KY") or "vidhwanjav@123!"
+
+    MONGODB_SETTINGS = { 'db' : 'UTA_Enrollment' }
