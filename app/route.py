@@ -11,9 +11,8 @@ courseData = [{"courseID":"1111","title":"PHP 111",
      "description":"Advanced Java Programming","credits":"4","term":"Fall"}]
 
 @app.route("/")
-@app.route("/home")
 @app.route("/index")
-
+@app.route("/home")
 def home():
     return render_template("index.html", home = 1)
 
