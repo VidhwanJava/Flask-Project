@@ -1,7 +1,8 @@
-from app import app, db
-from flask import render_template, request, json, Response, flash, redirect, url_for, session
+from app import app, db, api
+from flask import render_template, request, json, Response, flash, redirect, url_for, session, jsonify
 from app.models import User, Course, Enrollment
 from app.forms import LoginForm, RegisterForm
+from flask_restplus import Resource
 
 # courseData = [{"courseID":"1111","title":"PHP 111",
 #     "description":"Intro to PHP","credits":"3","term":"Fall, Spring"},
@@ -11,6 +12,22 @@ from app.forms import LoginForm, RegisterForm
 #      {"courseID":"4444","title":"Angular 1","description":"Intro to Angular",
 #      "credits":"3","term":"Fall, Spring"}, {"courseID":"5555","title":"Java 2",
 #      "description":"Advanced Java Programming","credits":"4","term":"Fall"}]
+
+##############################################
+@app.route('/api','/api/')
+class GetAndPost(Resource):
+
+    def get(self):
+        return jsonify(user.objects.all())
+
+
+@app.route('/api/<idx>')
+class GetUpdateDelete(Resource):
+
+    def get(self, idx):
+        return jsonify(user.objects(user_id = idx))
+
+##############################################
 
 @app.route("/")
 @app.route("/index")
