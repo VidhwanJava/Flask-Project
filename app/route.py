@@ -1,7 +1,7 @@
 from app import app, db
-from flask import render_template, request, json, Response, flash, redirect
+from flask import render_template, request, json, Response, flash, redirect, url_for
 from app.models import User, Course, Enrollment
-from app.forms import LoginForm, RegiterForm
+from app.forms import LoginForm, RegisterForm
 
 courseData = [{"courseID":"1111","title":"PHP 111",
     "description":"Intro to PHP","credits":"3","term":"Fall, Spring"},
@@ -24,17 +24,35 @@ def courses(term = "Fall 2020"):
     return render_template("courses.html", courseData = courseData, course = 1, term = term)
 
 
-@app.route("/register")
+@app.route("/register",  methods = ["GET","POST"])
 def register():
-    return render_template("register.html", register = 1)
+    form = RegisterForm()
+    if form.validate_on_submit():
+        user_id = User.objects.count() + 1
+        email =form.email.data
+        password = form.password.data
+        first_name = form.first_name.data
+        last_name = form.last_name.data
+
+        user = User(user_id = user_id, email = email, first_name = first_name, last_name= last_name)
+        user.set_password(password)
+        user.save()
+        flash("User registered successfully!", "success")
+        return redirect(url_for('home'))
+    return render_template("register.html",title = "Sign Up", form = form, register = 1)
 
 
 @app.route("/login", methods = ["GET","POST"])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        if request.form.get("email") == "tester":
-            flash("You are successfully logged in!", "success")
+
+        email = form.email.data
+        password = form.password.data
+
+        user = User.objects(email = email).first()
+        if user and user.get_password(password):
+            flash(f"{user.first_name}, You are successfully logged in!", "success")
             return redirect("/home")
         else:
             flash("Sorry, wrong credentials!", "danger")
