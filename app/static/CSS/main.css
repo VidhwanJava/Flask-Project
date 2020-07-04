@@ -99,3 +99,12 @@ footer {
     color: red;
     font-style: italic;
 }
+
+.user {
+    float: right;
+    position: absolute;
+    font-size: medium;
+    right: 10em;
+    top: 8em;
+    color: blue;
+}

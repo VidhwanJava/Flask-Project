@@ -15,6 +15,10 @@
 
     {% include "includes/nav.html" %}
 
+    {% if session['username'] %}
+    <span class="user"> Logged in as: {{ session['username'] }}</span>
+    {% endif %}
+
     {% with messages = get_flashed_messages( with_categories = true ) %}
 
         {% if messages %}

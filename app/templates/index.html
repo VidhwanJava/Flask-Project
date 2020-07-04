@@ -5,7 +5,7 @@
         <div class="col-md-12 text-center">
             <h1>Welcome to Universal Tech Academy.</h1>
 
-            {% if login %}
+            {% if session['username'] %}
 
             <h3>Let's get started.</h3>
 
@@ -14,6 +14,26 @@
             <p>Already registered? <a href="{{ url_for('login') }}">Login</a></p>
             
             {% endif %}
+            <br>
+            <br>
+            <div style="text-align: left;">
+            <h2> A Lone Wolf Never Need a Crew!</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna ligula, et cursus lacus molestie a. Vestibulum ac ultrices tellus. Donec ultrices lacus eu mauris ullamcorper elementum. Ut non congue justo. Fusce vestibulum sit amet felis a scelerisque. Donec dictum quam a bibendum gravida. Mauris efficitur dui turpis, nec mattis ligula mollis quis.
+
+                Aenean vestibulum euismod ipsum, a accumsan elit aliquet quis. Curabitur in augue nec ligula tincidunt tincidunt vitae quis velit. Donec sed elit rhoncus, blandit quam ut, laoreet lacus. Quisque bibendum non urna ut ultrices. Donec dictum ullamcorper odio at semper. Maecenas augue nunc, mollis in ligula ut, faucibus iaculis ligula. Nullam viverra egestas metus, et tempus mauris volutpat quis.
+
+                Cras et enim leo.
+            </p>
+
+            <p>
+                Praesent ut congue leo, sed aliquet nulla. Maecenas vitae porta erat. Suspendisse potenti. In suscipit, metus auctor maximus porta, libero metus cursus mi, lobortis ultrices purus ex ac turpis. Vivamus quis nisi ipsum. Etiam id tempor lacus, sit amet sagittis lorem. Suspendisse mattis elit ante, eu consectetur ex tempor nec. Donec purus libero, aliquam id lorem quis, imperdiet mattis arcu. Nam nec tellus at quam dapibus posuere. Etiam pellentesque at enim sit amet tempus. Nullam interdum ex aliquet dolor dapibus, nec facilisis tortor molestie.
+
+                Sed id tortor fermentum, porttitor nibh sit amet, dictum purus. Vestibulum nec auctor urna. Nunc vitae sem id urna tincidunt sagittis eget eu turpis. Duis ultricies auctor tincidunt. Mauris magna turpis, laoreet non urna a, finibus finibus diam. Vestibulum tincidunt sem id cursus rutrum. Nulla facilisi. Praesent luctus arcu et lacus fringilla mollis. Donec vitae rhoncus nisl, vel vehicula diam. Pellentesque efficitur ante vestibulum volutpat porta.
+
+                Pellentesque accumsan facilisis ante, a ullamcorper nibh suscipit sit amet. Donec ac augue ut lorem tincidunt venenatis eu quis nisl. Phasellus vulputate mi eget libero sollicitudin, eget viverra mi lacinia. Vestibulum eget pretium purus. Mauris imperdiet et augue ac pellentesque. Phasellus nec risus augue. Aenean sit amet consectetur lorem. Integer sollicitudin sapien sed ipsum blandit, sit amet volutpat massa viverra. Sed nec mauris egestas, tincidunt turpis et, accumsan mi. Fusce orci leo, semper id faucibus non, faucibus sit amet mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam commodo massa eu nunc euismod, ut interdum risus porta. Donec commodo augue eu nibh congue dignissim. Nunc eu viverra turpis, sit amet euismod neque.
+            </p>
+            </div>
 
         </div>
     </div>
